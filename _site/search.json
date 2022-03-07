@@ -9,6 +9,14 @@
     } ,
   
     {
+      "title"    : "2일차. Python 자료형과 입출력",
+      "category" : "",
+      "tags"     : "python",
+      "url"      : "/2022/03/06/python-prac/",
+      "date"     : "2022-03-06 20:20:20 +0900"
+    } ,
+  
+    {
       "title"    : "1일차. HTML 입문",
       "category" : "",
       "tags"     : "web and HTML",

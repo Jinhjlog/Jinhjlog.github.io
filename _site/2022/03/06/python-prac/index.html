@@ -5,9 +5,9 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-  <title>guide</title>
-  <meta name='description' content="Flexton is a responsive and ultra-minimal theme for Jekyll.">
-  <link rel='canonical' href="http://localhost:4000/category/guide/">
+  <title>2일차. Python 자료형과 입출력</title>
+  <meta name='description' content="자료형값(data)의 종류, 자료형에 따라 프로그램에서 값을 다루는 방법이 달라진다.파이썬에서 다루는 자료형파이썬에서 다루는 자료형은 integer(정수), Boolean(참 또는 거짓), floating point(소수점), complex(복소수 표현), String(문자열), ...">
+  <link rel='canonical' href="http://localhost:4000/2022/03/06/python-prac/">
   <link rel='alternate' type='application/rss+xml' title='Welcome to Flexton' href="http://localhost:4000/feed.xml">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Volkhov:400,700" rel="stylesheet">
@@ -74,106 +74,237 @@
 </aside> <!-- /.c-sidebar -->
 
 <main class="c-content">
-  <header class="c-header">
-  <div class="c-header__box">
-    <div class="c-search">
-      <div class="c-search__box">
-        <label for="js-search-input" class="u-screen-reader-text">Search for Blog</label>
-        <input type="text" id="js-search-input" class="c-search__text" autocomplete="off" placeholder="Type to search...">
-        <div data-icon='ei-search' data-size='s'></div>
+  <article class="c-article">
+  <div class="c-article__content">
+    <header class="c-header u-hide u-no-margin-top">
+      <div class="c-header__box">
+        <div class="c-search u-full-width">
+          <div class="c-search__box">
+            <label for="js-search-input" class="u-screen-reader-text">Search for Blog</label>
+            <input type="text" id="js-search-input" class="c-search__text" autocomplete="off" placeholder="Type to search...">
+            <div data-icon='ei-search' data-size='s'></div>
+          </div>
+          <ul id="js-results-container" class="c-search-results-list"></ul>
+        </div>
       </div>
-      <ul id="js-results-container" class="c-search-results-list"></ul>
-    </div>
-    <div class="c-nav">
-      <ul class="c-nav__list u-lists-reset">
-        <li class="c-nav__item is-active">
-          <div data-icon='ei-pencil' data-size='s'></div> Posts</li>
-        <li class="c-nav__item">
-          <div data-icon='ei-star' data-size='s'></div> Categories</li>
-      </ul>
-    </div>
+    </header>
+    
+    <div class="c-article__image o-opacity" style="background-image: url( /images/python.png )"></div>
+    
+    <div class="c-wrap-content">
+      <header class="c-article__header">
+        <h1 class="c-article__title">2일차. Python 자료형과 입출력</h1>
+        <div class="c-article__date">
+          <span>2022, Mar 06</span>
+        </div>
+      </header>
+      <h2 id="자료형">자료형</h2>
+<p>값(data)의 종류, 자료형에 따라 프로그램에서 값을 다루는 방법이 달라진다.
+<br /></p>
+<h2 id="파이썬에서-다루는-자료형">파이썬에서 다루는 자료형</h2>
+<p>파이썬에서 다루는 자료형은 integer(정수), Boolean(참 또는 거짓), floating point(소수점), complex(복소수 표현), String(문자열), List, Tuple, set(집합 개념), Dictionary(값과 값들을 서로 연결해 놓은 것)</p>
+
+<h2 id="문자열">문자열</h2>
+<p>문자들의 집합인 문자열을 다루는 자료형</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># 제어 문자 출력</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">, </span><span class="se">\t</span><span class="s">, </span><span class="se">\'</span><span class="s">, </span><span class="se">\"</span><span class="s">, </span><span class="se">\\</span><span class="s">'</span><span class="p">)</span>
+<span class="c"># 문자열들을 덧셈 연산자로 연결 할 수 있다. (문자열은 문자열과만 연결 가능)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Fire + Bird : '</span><span class="o">+</span><span class="s">'Fire'</span> <span class="o">+</span> <span class="s">'Bird'</span><span class="p">)</span>
+<span class="c"># 곱셈 연산자를 이용하여 반복</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Hi!*2 : '</span><span class="o">+</span><span class="s">'Hi!'</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/images/python/20220306/20220306-3.png" alt="" /></p>
+<hr />
+
+<h2 id="함수와-메써드">함수와 메써드</h2>
+<ul>
+  <li>function : 함수, 특정한 동작을 수행하는 기능 // 예시 : len(), print() <br /></li>
+  <li>method : 메써드, 함수와 비슷하다 // 예시 : message.upper() <br />
+메써드는 함수와 다르게 이름만으로 호출 될 수 없다. (예시 참고) <br /></li>
+</ul>
+
+<blockquote>
+  <p>문자열 메써드</p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">mail</span> <span class="o">=</span> <span class="s">'Wellcome!!'</span>
+<span class="c"># 문자열을 대문자로 변환</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'mail.upper() -&gt;'</span><span class="p">,</span> <span class="n">mail</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="c"># 문자열을 소문자로 변환</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'mail.lower() -&gt;'</span><span class="p">,</span> <span class="n">mail</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="c"># 문자열에 포함된 특정 문자의 개수 계산</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'mail.count(l) -&gt;'</span><span class="p">,</span> <span class="n">mail</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s">'l'</span><span class="p">))</span></code></pre></figure>
+
+<p><img src="/images/python/20220306/20220306-4.png" alt="" /></p>
+<hr />
+
+<h1 id="자료형-변환-함수">자료형 변환 함수</h1>
+<p>자료형 다음에 괄호를 사용하면 된다.
+자료형(값)
+예시 : int(x), complex(x, y), float(x), str(x) 등등</p>
+<hr />
+
+<h2 id="표준-출력">표준 출력</h2>
+<p>컴퓨터 시스템에서 가장 기본이 되는 출력 장치</p>
+
+<p><strong>print 함수 : 표준 출력에 지정한 값을 출력하고 개행</strong></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s">'Hello World!!'</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="/images/python/20220306/20220306-1.png" alt="" /></p>
+<hr />
+
+<h2 id="변수-정의와-출력">변수 정의와 출력</h2>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="c"># print 함수를 이용해 변수 value를 출력한다.</span>
+<span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+<span class="c"># value = 10</span>
+<span class="c"># 위와 같이 출력하기 위해서는 문자열을 만들어야 한다.</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'value = '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+<span class="c"># or</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'value ='</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="c"># print 함수에서 여러 값을 출력할 수 있으며 쉼표(,)로 구분한다. 각 값들은 빈칸으로 구분되어 출력</span></code></pre></figure>
+
+<p><img src="/images/python/20220306/20220306-2.png" alt="" /> <br /></p>
+<hr />
+
+<h2 id="sep인자">sep인자</h2>
+<p>빈칸이 아닌 다른 값으로 각각의 값들을 구분하고자 할 때 사용한다</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>          <span class="c">#1 2 3</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">", "</span><span class="p">)</span>  <span class="c">#1, 2, 3</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">","</span><span class="p">)</span>  <span class="c">#1,2,3</span>
+<span class="k">print</span><span class="p">(</span><span class="mi">2580</span><span class="p">,</span> <span class="mi">1080</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">'x'</span><span class="p">)</span>  <span class="c"># 2580x1080</span></code></pre></figure>
+
+<p><img src="/images/python/20220306/20220306-5.png" alt="" /> <br /></p>
+
+<h2 id="end-인자">end 인자</h2>
+<p>print 함수는 마지막에 개행문자를 출력하게 되는데 만약 이를 다른 값으로 바꾸고 싶다면 end인자를 사용하면 된다.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">value</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'value = '</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">''</span><span class="p">)</span>   <span class="c"># 'value = '</span>
+<span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>                <span class="c"># 30\</span>
+<span class="c"># end 인자를 설정해서 마지막에 출력되는 개행 문자를 제거 한다.</span></code></pre></figure>
+
+<p><img src="/images/python/20220306/20220306-6.png" alt="" /> <br /></p>
+<hr />
+
+<h2 id="형식화된-문자열formatted-string">형식화된 문자열(formatted string)</h2>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">value</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="mi">3</span>  <span class="c"># result = 10</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'value ='</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="s">'value / 3 ='</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="c"># 첫 번째 값은 위치가 0, 두 번째 값은 위치가 1 이 된다.</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'value = {0} value / 3 = {1}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">result</span><span class="p">))</span>
+<span class="c"># 값들이 순서대로 들어간다면 0과 1을 생략할 수 있다.</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'value = {} value / 3 = {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">result</span><span class="p">))</span></code></pre></figure>
+
+<p><img src="/images/python/20220306/20220306-7.png" alt="" /> <br /></p>
+
+
+      <div class="c-article__footer u-clearfix">
+        <div class="c-article__tag">
+          
+          <a href="/tags#python">&#35; python</a>
+          
+        </div>
+        <div class="c-article__share">
+          <a href="https://twitter.com/intent/tweet?text=2%EC%9D%BC%EC%B0%A8.%20Python%20%EC%9E%90%EB%A3%8C%ED%98%95%EA%B3%BC%20%EC%9E%85%EC%B6%9C%EB%A0%A5&url=http://localhost:4000/2022/03/06/python-prac/" title="Share
+          on Twitter" rel="nofollow" target="_blank"><div data-icon='ei-sc-twitter' data-size='s'></div></a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/2022/03/06/python-prac/" title="Share on Facebook" rel="nofollow" target="_blank"><div data-icon='ei-sc-facebook' data-size='s'></div></a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/2022/03/06/python-prac/" title="Share on Google+" rel="nofollow" target="_blank"><div data-icon='ei-sc-google-plus' data-size='s'></div></a>
+        </div>
+      </div>
+      <div class="c-newsletter">
+  <div class="c-newsletter__header">
+    <h4 class="c-newsletter__title">Newsletter</h4>
+    <div class="c-newsletter__subtitle">Subscribe to this blog and receive notifications of new posts by email.</div>
   </div>
-</header> <!-- /.c-header -->
-<div class="c-posts o-opacity">
-  
-  <article class="c-post">
-    
-    <a class="c-post-thumbnail" style="background-image: url(/images/8.jpg)"
-      href="/2018/03/02/style-guide/"></a>
-    
-    <div class="c-post-content">
-      <h2 class="c-post-title">
-        <a href="/2018/03/02/style-guide/">Style Guide</a>
-      </h2>
-      <p>A paragraph looks like this — dolor amet cray stumptown fingerstache neutra food truck seitan...</p>
-      <span class="c-post-date">2018, Mar 02&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-      <span class="c-post-words">2 minute read</span>
+  <form class="c-newsletter-form validate" action="#" method="POST" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+    <div class="c-newsletter-form__group">
+      <label class="u-screen-reader-text" for="mce-EMAIL">Email address</label>
+      <input class="c-newsletter__email required email" id="mce-EMAIL" type="email" name="EMAIL" placeholder="Your email address" autocomplete="on">
+      <input class="c-newsletter__button" id="mc-embedded-subscribe" type="submit" name="subscribe" value="Subscribe">
     </div>
-  </article>
-  
-</div> <!-- /.c-posts -->
-<div class="c-categories" style="display: none;">
-  <ul class="c-categories__list u-lists-reset">
+  </form>
+</div> <!-- /.c-newsletter -->
+      <div class="c-recent-post">
+        <h4 class="c-recent__title">You might also enjoy</h4>
+        <div class="c-recent__box">
+        
+        
+          <div class="c-recent__item">
+            <a class="c-recent__image" href="/2022/03/06/web-prac/" style="background-image: url( /images/html.jpg)"></a>
+            <div class="c-recent__footer">
+              <h4><a href="/2022/03/06/web-prac/">2일차. HTML 입력 데이터 전달 방식, Input Form</a></h4>
+              <div class="c-recent__date">
+                <time datetime="2022-03-06T22:32:20+09:00">March 6, 2022</time>
+              </div>
+            </div>
+          </div>
+        
+        
+        
+          <div class="c-recent__item">
+            <a class="c-recent__image" href="/2022/03/06/web-prac/" style="background-image: url( /images/html.jpg)"></a>
+            <div class="c-recent__footer">
+              <h4><a href="/2022/03/06/web-prac/">1일차. HTML 입문</a></h4>
+              <div class="c-recent__date">
+                <time datetime="2022-03-06T01:35:20+09:00">March 6, 2022</time>
+              </div>
+            </div>
+          </div>
+        
+        
+        
+          <div class="c-recent__item">
+            <a class="c-recent__image" href="/2022/03/05/python-prac/" style="background-image: url( /images/python.png)"></a>
+            <div class="c-recent__footer">
+              <h4><a href="/2022/03/05/python-prac/">1일차. Python 기초</a></h4>
+              <div class="c-recent__date">
+                <time datetime="2022-03-05T22:35:20+09:00">March 5, 2022</time>
+              </div>
+            </div>
+          </div>
+        
+        
+        
+          <div class="c-recent__item">
+            <a class="c-recent__image" href="/2018/03/02/style-guide/" style="background-image: url( /images/8.jpg)"></a>
+            <div class="c-recent__footer">
+              <h4><a href="/2018/03/02/style-guide/">Style Guide</a></h4>
+              <div class="c-recent__date">
+                <time datetime="2018-03-02T20:35:20+09:00">March 2, 2018</time>
+              </div>
+            </div>
+          </div>
+        
+        
+        </div>
+      </div> <!-- /.c-recent-post -->
       
-    <li class="c-categories__item">
+        <div class="c-comments">
+  <div id="disqus_thread" class="article-comments"></div>
+  <script>
+    (function () {
+      var d = document, s = d.createElement('script');
+      s.src = '//mr-brown.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+</div> <!-- /.c-comments -->
       
-      <a class="c-categories__link" href="/category/guide/">
-        
-        
-        
-        <div class="c-categories__img">
-          <figure style="background-image: url('/images/8.jpg');"></figure>
-          <span class="c-categories__more">View all</span>
-        </div>
-        
-        
-        <div class="c-categories__container ">
-          <h2 class="c-categories__header">guide</h2>
-          <p class="c-categories__count"><span>1</span> Posts</p>
-        </div>
-      </a>
-    </li>
-    
-    <li class="c-categories__item">
-      
-      <a class="c-categories__link" href="/category/python/">
-        
-        
-        
-        <div class="c-categories__img">
-          <figure style="background-image: url('/images/python.png');"></figure>
-          <span class="c-categories__more">View all</span>
-        </div>
-        
-        
-        <div class="c-categories__container ">
-          <h2 class="c-categories__header">python</h2>
-          <p class="c-categories__count"><span>1</span> Posts</p>
-        </div>
-      </a>
-    </li>
-    
-    <li class="c-categories__item">
-      
-      <a class="c-categories__link" href="/category/web/">
-        
-        
-        
-        <div class="c-categories__img">
-          <figure style="background-image: url('/images/html.jpg');"></figure>
-          <span class="c-categories__more">View all</span>
-        </div>
-        
-        
-        <div class="c-categories__container ">
-          <h2 class="c-categories__header">web</h2>
-          <p class="c-categories__count"><span>2</span> Posts</p>
-        </div>
-      </a>
-    </li>
-    
-  </ul>
-</div> <!-- ./c-categories -->
+    </div> <!-- /.c-wrap-content -->
+  </div> <!-- /.c-article__content -->
+</article> <!-- /.c-article-page -->
+
 </main> <!-- /.c-content -->
   </div> <!-- /.o-wrapper -->
   <div class="c-top" data-icon='ei-chevron-up' data-size='s' title="Scroll To Top"></div> <!-- /.c-top -->
