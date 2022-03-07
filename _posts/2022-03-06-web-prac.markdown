@@ -1,0 +1,161 @@
+---
+layout: post
+title: 2일차. HTML 입력 데이터 전달 방식, Input Form
+image: html.jpg
+date: 2022-03-06 15:32:20 +0200
+tags: [web, HTML]
+categories: web
+---
+## 입력 데이터의 전달 방식  
+
+
+
+GET 방식 : 입력 데이터를 주소(URL)에 덧붙여서 전달
+* 장점 : 구현하기 쉽다.
+* 단점 : 사용자가 입력한 데이터가 그대로 노출이 된다. 보안 취약
+
+
+POST 방식 : 입력 데이터를 따로 인코딩 해서 전달
+* 개인정보가 포함된 경우 무조건 post 방식
+
+<hr>
+<strong>input form 요소</strong>
+{% highlight html %}
+    <!-- <form> 요소 : 입력 양식(input form)을 표현 -->
+    <form action="/server/program" method="post">
+    <!-- 어디로 전달할 것인가, 어떻게 전달할 것인가 -->
+{% endhighlight %}
+  
+  
+<strong>input type="text"</strong>
+{% highlight html %}
+<p>
+    TEXT:
+    <!-- <input> 요소 : 입력 요소(input element)를 표현-->
+    <!-- type="text" 한 줄짜리 입력창을 만들어 낸다.-->
+    <!-- placeholder : 입력창에 회색 얇은 글씨, 글작성시 사라진다-->
+    <input type="text" name="account" placeholder="Account">
+</p>
+{% endhighlight %}
+![]({{site.baseurl}}/images/web/20220305-3.png)<br>
+<hr>
+
+<strong>input type="password"</strong>
+{% highlight html %}
+<p>
+    PASSWORD:
+    <!-- type="password" 비밀번호 입력창을 만들어 낸다.-->
+    <input type="password" name="password" placeholder="password">
+</p>
+{% endhighlight %}
+![]({{site.baseurl}}/images/web/20220305-4.png)<br>
+<hr>
+<strong>input type="checkbox"</strong>
+{% highlight html %}
+<p>
+    CHECKBOX:
+    <!-- type="checkbox" 체크박스를 생성, 반드시 value 전달값을 입력해주어야 한다. -->
+    <input type="checkbox" name="agree" value="yes">
+    <!-- checked 요소 안에 입력 시 선택된 상태로 됨-->
+    <input type="checkbox" name="agree" value="yes" checked>
+</p>
+{% endhighlight %}
+![]({{site.baseurl}}/images/web/20220305-5.png)<br>
+요소에 checked 포함 ![]({{site.baseurl}}/images/web/20220305-6.png)<br>
+
+* for
+{% highlight html %}
+<p>
+    CHECKBOX:
+    <input type="checkbox" name="agree" value="yes" id ="agree" checked>
+</p>
+<!-- 요소 별로 떨어져 있을 때 for를 사용한다. -->
+<p>
+    <!-- <label>요소 : 입력 요소와 연결되는 문구를 연결하기 위해 사용 -->
+    <label for="agree">동의하십니까</label>
+</p>
+{% endhighlight %}
+![]({{site.baseurl}}/images/web/20220305-7.png)<br>
+<hr>
+<strong>input type="RADIO"</strong>
+{% highlight html %}
+<p>
+    RADIO:
+    <!-- type="radio" : 라디오 버튼을 생성한다 name 속성이 같으면 한 묶음이다.-->
+    <!-- 반드시 value 속성을 입력해주어야 한다. -->
+    <label>
+        <input type="radio" name="favorite" value="apple" checked> 사과
+    </label>
+    <label>
+        <input type="radio" name="favorite" value="pineapple"> 파인애플
+    </label>
+    <label>
+        <input type="radio" name="favorite" value="watermelon"> 수박
+    </label>
+</p>
+{% endhighlight %}
+![]({{site.baseurl}}/images/web/20220305-8.png)<br>
+<hr>
+<strong>input type="file"</strong>
+{% highlight html %}
+<p>
+    FILE:
+    <!-- type="file" : 파일 선택 창 생성-->
+    <input type="file" name="photo">
+</p>
+{% endhighlight %}
+![]({{site.baseurl}}/images/web/20220305-9.png)<br>
+<hr>
+<strong>input type="submit"</strong>
+{% highlight html %}
+<p>
+    SUBMIT:
+    <!-- type="submit" : 제출 버튼 생성-->
+    <input type="submit" name="login" value="로그인">
+</p>
+{% endhighlight %}
+![]({{site.baseurl}}/images/web/20220305-10.png)<br>
+<hr>
+<strong>input type="reset"</strong>
+{% highlight html %}
+<p>
+    RESET:
+    <!-- type="reset" : 초기화 버튼을 생성 // 잘 쓰지 않는다. -->
+    <input type="reset" name="reset" >
+</p>
+{% endhighlight %}
+![]({{site.baseurl}}/images/web/20220305-11.png)<br>
+<hr>
+<strong>select name="___"</strong>
+{% highlight html %}
+<p>
+    SELECT:
+    <!-- <select> 요소 : 드랍다운 형태의 선택 창을 표현-->
+    <select name="tour">
+        <!--<option> 요소 : 선택 항목을 표현-->
+        <option value="jeju">제주</option>
+        <option value="yeosu">여수</option>
+        <option value="gangreung">강릉</option>
+    </select>
+    </p>
+{% endhighlight %}
+![]({{site.baseurl}}/images/web/20220305-12.png)<br>
+<hr>
+<strong>textarea name="___"</strong>
+{% highlight html %}
+<p>
+    TEXTAREA:
+    <!-- <textarea> 요소 : 여러 줄을 가지는 입력 창을 표현, input과 다르게 끝태그가 있다.
+    안에 글을 입력하게 되면 기본값이 된다.-->
+    <textarea name="comment" cols="60" rows="5">Jinhjlog.github.io</textarea>
+</p>
+{% endhighlight %}
+![]({{site.baseurl}}/images/web/20220305-13.png)<br>  
+
+
+
+
+
+
+
+

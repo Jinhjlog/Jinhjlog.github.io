@@ -1,0 +1,108 @@
+---
+layout: post
+title: 1일차. HTML 입문
+image: html.jpg
+date: 2022-03-05 18:35:20 +0200
+tags: [web, HTML]
+categories: web
+---
+
+## HTML 태그(Tag)
+HTML 문서의 기본 구성 요소, 소문자로 작성하며 객체를 만들 때 사용한다.
+<hr>
+## HTMK 문서의 기본 구조
+* doctype : 문서의 형식, 이 문서가 HTML5 문서임을 표시
+* < html > 요소 : HTML 문서의 최상위 요소
+* < head >요소 : 문서 정보와 필요한 스크립트 포함
+* < title >요소 : 제목
+* < body > 요소 : 본문
+<hr>
+## 글자 태그(Typography tags)
+HTML 문서에서 가장 큰 비중을 차지하는 태그<br>
+<br>
+<strong>제목 태그</strong> <h1>~<h6> >> <br>
+{% highlight html %}
+    <body>
+        <h1>Hello World!</h1>
+        <h2>Hello World!</h2>
+        <h3>Hello World!</h3>
+        <h4>Hello World!</h4> <!-- <h4>일반 글자 크기-->
+        <h5>Hello World!</h5>
+        <h6>Hello World!</h6>
+    </body>
+{% endhighlight %} <br>
+h1~ h6 순으로 글자가 점점 작아진다. <h4>가 일반 글자 크기
+![]({{site.baseurl}}/images/web/20220305-1.png)
+
+<hr>
+
+## 앵커 태그
+서로 다른 HTML 문서 사이를 이동 혹은 문서 내부에서 특정한 위치로 이동할 때 사용
+{% highlight html %}
+    <a href="https://jinhjlog.github.io/">Jinhjlog</a>
+{% endhighlight %}
+href(hyper reference) 속성에 이동할 URL을 속성값으로 부여
+<hr>
+
+## 기본 구조
+{% highlight html %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- 메타 정보를 설정 -->
+        <!-- 문자 인코딩(character encoding)을 설정 -->
+       
+        <title>Hello World!!!</title>
+        <!-- <title> 요소 : 제목을 설정-->
+    </head>
+    <body>
+        <h1>Hello World!!</h1>
+	<!-- <h1> 요소 : 제목을 표현 -->
+    </body>
+</html>
+{% endhighlight %}
+<hr>
+## 목록 태그
+< ul> (unordered list) 순서가 없는 목록 <br>
+< ol> (ordered list) 순서가 있는 목록 <br>
+항목의 각 요소들은 <li> 태그를 이용한다. (list item), <strong>목록 안에 항목을 제외한 다른 컨텐츠가 들어가면 안된다.</strong>
+{% highlight html %}
+<!doctype html>
+    <html>
+        <head>
+            <meta charset="utf-8" >
+            <title>Unordered list</title>
+        </head>
+        <body>
+            <h2>Ordered list</h2>
+            <ol>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Instagram</li>
+            </ol>
+            <hr>
+            <h2>Unordered list</h2>
+            <ul>
+                <li>Google</li>
+                <li>Naver</li>
+                <li>Daum</li>
+            </ul>
+            <hr>
+        </body>
+    </html>
+{% endhighlight %}
+![]({{site.baseurl}}/images/web/20220305-2.png)<br>
+순서가 없는 목록은 marker가 bullet이 찍히고, 순서가 있는 목록은 marker가 숫자로 찍힌다.
+<hr>
+## 이미지 태그
+브라우저 화면에 이미지를 표현하기 위해 사용하며 끝 태그가 없다.
+{% highlight html %}
+<!-- <img>요소의 scr 속성과 alt 속성은 반드시 지정해야 함. -->
+<img src="window.jpg" alt="Window">
+{% endhighlight %}
+
+
+
+
+
