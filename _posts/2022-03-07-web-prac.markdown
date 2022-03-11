@@ -33,7 +33,7 @@ categories: web
 <hr>
 
 ## 태그 선택자
-특정 태그로 작성한 요소를 찾기 위한 선택자
+특정 태그로 작성한 요소를 찾기 위한 선택자<br>
 ![]({{site.baseurl}}/images/web/20220307/20220307-1.png)<br>
 ![]({{site.baseurl}}/images/web/20220307/20220307-2.png)<br>
 <hr>
