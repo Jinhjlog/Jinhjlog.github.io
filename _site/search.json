@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "3일차. CSS",
+      "category" : "",
+      "tags"     : "web, HTML, and CSS",
+      "url"      : "/2022/03/07/web-prac/",
+      "date"     : "2022-03-07 21:52:20 +0900"
+    } ,
+  
+    {
       "title"    : "2일차. HTML 입력 데이터 전달 방식, Input Form",
       "category" : "",
       "tags"     : "web and HTML",

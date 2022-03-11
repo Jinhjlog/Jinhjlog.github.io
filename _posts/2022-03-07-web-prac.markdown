@@ -1,0 +1,92 @@
+---
+layout: post
+title: 3일차. CSS
+image: html.jpg
+date: 2022-03-07 14:52:20 +0200
+tags: [web, HTML, CSS]
+categories: web
+---
+
+### CSS 선택자
+- CSS 블록에 지정한 스타일을 적용할 HTML 요소를 선택한다.
+
+{% highlight html %}
+<style>
+    /* 스타일 시트에서의 주석 표기방법 */
+    /* -----------------------------*/
+    
+    h1 {
+        color: blue;
+        background-color: green;
+    }
+    /* 선택자에서 쉼표(,)를 사용하면 (또는)OR의 의미를 가진다*/
+    h2, h3 {
+        color: red;
+        background-color: yellow;
+    }
+    /* (*)는 전체 선택자이며 돔에 있는 모든 요소를 나타낸다. 하지만 쓰지 않는다 */
+    * {
+        color: gold;
+    }
+</style>
+{% endhighlight %}
+<hr>
+
+## 태그 선택자
+특정 태그로 작성한 요소를 찾기 위한 선택자
+![]({{site.baseurl}}/images/web/20220307/20220307-1.png)<br>
+![]({{site.baseurl}}/images/web/20220307/20220307-2.png)<br>
+<hr>
+
+## HTML 요소의 id 속성과 class 속성
+스타일 시트나 JavaScript에서 특정 HTML 요소를 선택하기 위해 주로 사용
+> <strong>id속성과 class 속성 값 작성 규칙</strong><br> 
+영문자와 숫자, 하이픈, 밑줄 문자만 사용하며 모든 값은 대소문자를 구분한다.  
+
+
+## 아이디 선택자와 클래스 선택자
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>title</title>
+        <style>
+            /* id선택자는 #을 붙인다.*/
+            /* 아이디 속성의 값이 test1인 요소를 찾는다. */
+            #test1 {
+                color: blue;
+            }
+            /* class선택자는 .을 붙인다.*/
+            /* 클래스 속성의 값이 test2인 요소를 찾는다. */
+            .test2 {
+                background-color: yellowgreen;
+            }
+            /* 클래스 선택자에서 strong 태그로 작성된 요소와 클래스 속성 test3를 AND로 한다.*/
+            strong.test3 {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="test1" class=" test2">Hello World!!</h1>
+        <p>
+            태그 선택자<br>
+            <strong>강조!</strong>
+            <ul class="test2">
+                <li><strong class="test3">list1</strong></li>
+                <li>list2</li>
+                <li>list3</li>
+            </ul>
+        </p>
+    </body>
+</html>
+{% endhighlight %}
+
+결과: <br>
+![]({{site.baseurl}}/images/web/20220307/20220307-3.png)<br>
+
+
+
+
+

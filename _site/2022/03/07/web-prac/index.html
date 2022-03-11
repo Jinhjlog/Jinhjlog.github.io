@@ -5,9 +5,9 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-  <title>web</title>
-  <meta name='description' content="Flexton is a responsive and ultra-minimal theme for Jekyll.">
-  <link rel='canonical' href="http://localhost:4000/category/web/">
+  <title>3일차. CSS</title>
+  <meta name='description' content="CSS 선택자  CSS 블록에 지정한 스타일을 적용할 HTML 요소를 선택한다.">
+  <link rel='canonical' href="http://localhost:4000/2022/03/07/web-prac/">
   <link rel='alternate' type='application/rss+xml' title='Welcome to Flexton' href="http://localhost:4000/feed.xml">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Volkhov:400,700" rel="stylesheet">
@@ -74,121 +74,215 @@
 </aside> <!-- /.c-sidebar -->
 
 <main class="c-content">
-  <header class="c-header">
-  <div class="c-header__box">
-    <div class="c-search">
-      <div class="c-search__box">
-        <label for="js-search-input" class="u-screen-reader-text">Search for Blog</label>
-        <input type="text" id="js-search-input" class="c-search__text" autocomplete="off" placeholder="Type to search...">
-        <div data-icon='ei-search' data-size='s'></div>
+  <article class="c-article">
+  <div class="c-article__content">
+    <header class="c-header u-hide u-no-margin-top">
+      <div class="c-header__box">
+        <div class="c-search u-full-width">
+          <div class="c-search__box">
+            <label for="js-search-input" class="u-screen-reader-text">Search for Blog</label>
+            <input type="text" id="js-search-input" class="c-search__text" autocomplete="off" placeholder="Type to search...">
+            <div data-icon='ei-search' data-size='s'></div>
+          </div>
+          <ul id="js-results-container" class="c-search-results-list"></ul>
+        </div>
       </div>
-      <ul id="js-results-container" class="c-search-results-list"></ul>
-    </div>
-    <div class="c-nav">
-      <ul class="c-nav__list u-lists-reset">
-        <li class="c-nav__item is-active">
-          <div data-icon='ei-pencil' data-size='s'></div> Posts</li>
-        <li class="c-nav__item">
-          <div data-icon='ei-star' data-size='s'></div> Categories</li>
-      </ul>
-    </div>
+    </header>
+    
+    <div class="c-article__image o-opacity" style="background-image: url( /images/html.jpg )"></div>
+    
+    <div class="c-wrap-content">
+      <header class="c-article__header">
+        <h1 class="c-article__title">3일차. CSS</h1>
+        <div class="c-article__date">
+          <span>2022, Mar 07</span>
+        </div>
+      </header>
+      <h3 id="css-선택자">CSS 선택자</h3>
+<ul>
+  <li>CSS 블록에 지정한 스타일을 적용할 HTML 요소를 선택한다.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;style&gt;</span>
+    <span class="c">/* 스타일 시트에서의 주석 표기방법 */</span>
+    <span class="c">/* -----------------------------*/</span>
+    
+    <span class="nt">h1</span> <span class="p">{</span>
+        <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
+        <span class="nl">background-color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c">/* 선택자에서 쉼표(,)를 사용하면 (또는)OR의 의미를 가진다*/</span>
+    <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span> <span class="p">{</span>
+        <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+        <span class="nl">background-color</span><span class="p">:</span> <span class="no">yellow</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c">/* (*)는 전체 선택자이며 돔에 있는 모든 요소를 나타낸다. 하지만 쓰지 않는다 */</span>
+    <span class="o">*</span> <span class="p">{</span>
+        <span class="nl">color</span><span class="p">:</span> <span class="no">gold</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span></code></pre></figure>
+
+<hr />
+
+<h2 id="태그-선택자">태그 선택자</h2>
+<p>특정 태그로 작성한 요소를 찾기 위한 선택자
+<img src="/images/web/20220307/20220307-1.png" alt="" /><br />
+<img src="/images/web/20220307/20220307-2.png" alt="" /><br /></p>
+<hr />
+
+<h2 id="html-요소의-id-속성과-class-속성">HTML 요소의 id 속성과 class 속성</h2>
+<p>스타일 시트나 JavaScript에서 특정 HTML 요소를 선택하기 위해 주로 사용</p>
+<blockquote>
+  <p><strong>id속성과 class 속성 값 작성 규칙</strong><br /> 
+영문자와 숫자, 하이픈, 밑줄 문자만 사용하며 모든 값은 대소문자를 구분한다.</p>
+</blockquote>
+
+<h2 id="아이디-선택자와-클래스-선택자">아이디 선택자와 클래스 선택자</h2>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;title&gt;</span>title<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            <span class="c">/* id선택자는 #을 붙인다.*/</span>
+            <span class="c">/* 아이디 속성의 값이 test1인 요소를 찾는다. */</span>
+            <span class="nf">#test1</span> <span class="p">{</span>
+                <span class="nl">color</span><span class="p">:</span> <span class="no">blue</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="c">/* class선택자는 .을 붙인다.*/</span>
+            <span class="c">/* 클래스 속성의 값이 test2인 요소를 찾는다. */</span>
+            <span class="nc">.test2</span> <span class="p">{</span>
+                <span class="nl">background-color</span><span class="p">:</span> <span class="no">yellowgreen</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="c">/* 클래스 선택자에서 strong 태그로 작성된 요소와 클래스 속성 test3를 AND로 한다.*/</span>
+            <span class="nt">strong</span><span class="nc">.test3</span> <span class="p">{</span>
+                <span class="nl">color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="nt">&lt;/style&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">"test1"</span> <span class="na">class=</span><span class="s">" test2"</span><span class="nt">&gt;</span>Hello World!!<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;p&gt;</span>
+            태그 선택자<span class="nt">&lt;br&gt;</span>
+            <span class="nt">&lt;strong&gt;</span>강조!<span class="nt">&lt;/strong&gt;</span>
+            <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"test2"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;li&gt;&lt;strong</span> <span class="na">class=</span><span class="s">"test3"</span><span class="nt">&gt;</span>list1<span class="nt">&lt;/strong&gt;&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;</span>list2<span class="nt">&lt;/li&gt;</span>
+                <span class="nt">&lt;li&gt;</span>list3<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;/ul&gt;</span>
+        <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></code></pre></figure>
+
+<p>결과: <br />
+<img src="/images/web/20220307/20220307-3.png" alt="" /><br /></p>
+
+
+      <div class="c-article__footer u-clearfix">
+        <div class="c-article__tag">
+          
+          <a href="/tags#web">&#35; web</a>
+          
+          <a href="/tags#HTML">&#35; HTML</a>
+          
+          <a href="/tags#CSS">&#35; CSS</a>
+          
+        </div>
+        <div class="c-article__share">
+          <a href="https://twitter.com/intent/tweet?text=3%EC%9D%BC%EC%B0%A8.%20CSS&url=http://localhost:4000/2022/03/07/web-prac/" title="Share
+          on Twitter" rel="nofollow" target="_blank"><div data-icon='ei-sc-twitter' data-size='s'></div></a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/2022/03/07/web-prac/" title="Share on Facebook" rel="nofollow" target="_blank"><div data-icon='ei-sc-facebook' data-size='s'></div></a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/2022/03/07/web-prac/" title="Share on Google+" rel="nofollow" target="_blank"><div data-icon='ei-sc-google-plus' data-size='s'></div></a>
+        </div>
+      </div>
+      <div class="c-newsletter">
+  <div class="c-newsletter__header">
+    <h4 class="c-newsletter__title">Newsletter</h4>
+    <div class="c-newsletter__subtitle">Subscribe to this blog and receive notifications of new posts by email.</div>
   </div>
-</header> <!-- /.c-header -->
-<div class="c-posts o-opacity">
-  
-  <article class="c-post">
-    
-    <a class="c-post-thumbnail" style="background-image: url(/images/html.jpg)"
-      href="/2022/03/06/web-prac/"></a>
-    
-    <div class="c-post-content">
-      <h2 class="c-post-title">
-        <a href="/2022/03/06/web-prac/">2일차. HTML 입력 데이터 전달 방식, Input Form</a>
-      </h2>
-      <p>입력 데이터의 전달 방식 GET 방식 : 입력 데이터를 주소(URL)에 덧붙여서 전달 장점 : 구현하기...</p>
-      <span class="c-post-date">2022, Mar 06&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-      <span class="c-post-words">3 minute read</span>
+  <form class="c-newsletter-form validate" action="#" method="POST" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+    <div class="c-newsletter-form__group">
+      <label class="u-screen-reader-text" for="mce-EMAIL">Email address</label>
+      <input class="c-newsletter__email required email" id="mce-EMAIL" type="email" name="EMAIL" placeholder="Your email address" autocomplete="on">
+      <input class="c-newsletter__button" id="mc-embedded-subscribe" type="submit" name="subscribe" value="Subscribe">
     </div>
-  </article>
-  
-  <article class="c-post">
-    
-    <a class="c-post-thumbnail" style="background-image: url(/images/html.jpg)"
-      href="/2022/03/05/web-prac/"></a>
-    
-    <div class="c-post-content">
-      <h2 class="c-post-title">
-        <a href="/2022/03/05/web-prac/">1일차. HTML 입문</a>
-      </h2>
-      <p>HTML 태그(Tag) HTML 문서의 기본 구성 요소, 소문자로 작성하며 객체를 만들 때 사용한다. HTMK 문서의...</p>
-      <span class="c-post-date">2022, Mar 06&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-      <span class="c-post-words">2 minute read</span>
-    </div>
-  </article>
-  
-</div> <!-- /.c-posts -->
-<div class="c-categories" style="display: none;">
-  <ul class="c-categories__list u-lists-reset">
+  </form>
+</div> <!-- /.c-newsletter -->
+      <div class="c-recent-post">
+        <h4 class="c-recent__title">You might also enjoy</h4>
+        <div class="c-recent__box">
+        
+        
+          <div class="c-recent__item">
+            <a class="c-recent__image" href="/2022/03/06/web-prac/" style="background-image: url( /images/html.jpg)"></a>
+            <div class="c-recent__footer">
+              <h4><a href="/2022/03/06/web-prac/">2일차. HTML 입력 데이터 전달 방식, Input Form</a></h4>
+              <div class="c-recent__date">
+                <time datetime="2022-03-06T22:32:20+09:00">March 6, 2022</time>
+              </div>
+            </div>
+          </div>
+        
+        
+        
+          <div class="c-recent__item">
+            <a class="c-recent__image" href="/2022/03/06/python-prac/" style="background-image: url( /images/python.png)"></a>
+            <div class="c-recent__footer">
+              <h4><a href="/2022/03/06/python-prac/">2일차. Python 자료형과 입출력</a></h4>
+              <div class="c-recent__date">
+                <time datetime="2022-03-06T20:20:20+09:00">March 6, 2022</time>
+              </div>
+            </div>
+          </div>
+        
+        
+        
+          <div class="c-recent__item">
+            <a class="c-recent__image" href="/2022/03/06/web-prac/" style="background-image: url( /images/html.jpg)"></a>
+            <div class="c-recent__footer">
+              <h4><a href="/2022/03/06/web-prac/">1일차. HTML 입문</a></h4>
+              <div class="c-recent__date">
+                <time datetime="2022-03-06T01:35:20+09:00">March 6, 2022</time>
+              </div>
+            </div>
+          </div>
+        
+        
+        
+          <div class="c-recent__item">
+            <a class="c-recent__image" href="/2022/03/05/python-prac/" style="background-image: url( /images/python.png)"></a>
+            <div class="c-recent__footer">
+              <h4><a href="/2022/03/05/python-prac/">1일차. Python 기초</a></h4>
+              <div class="c-recent__date">
+                <time datetime="2022-03-05T22:35:20+09:00">March 5, 2022</time>
+              </div>
+            </div>
+          </div>
+        
+        
+        </div>
+      </div> <!-- /.c-recent-post -->
       
-    <li class="c-categories__item">
+        <div class="c-comments">
+  <div id="disqus_thread" class="article-comments"></div>
+  <script>
+    (function () {
+      var d = document, s = d.createElement('script');
+      s.src = '//mr-brown.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+</div> <!-- /.c-comments -->
       
-      <a class="c-categories__link" href="/category/guide/">
-        
-        
-        
-        <div class="c-categories__img">
-          <figure style="background-image: url('/images/8.jpg');"></figure>
-          <span class="c-categories__more">View all</span>
-        </div>
-        
-        
-        <div class="c-categories__container ">
-          <h2 class="c-categories__header">guide</h2>
-          <p class="c-categories__count"><span>1</span> Posts</p>
-        </div>
-      </a>
-    </li>
-    
-    <li class="c-categories__item">
-      
-      <a class="c-categories__link" href="/category/python/">
-        
-        
-        
-        <div class="c-categories__img">
-          <figure style="background-image: url('/images/python.png');"></figure>
-          <span class="c-categories__more">View all</span>
-        </div>
-        
-        
-        <div class="c-categories__container ">
-          <h2 class="c-categories__header">python</h2>
-          <p class="c-categories__count"><span>2</span> Posts</p>
-        </div>
-      </a>
-    </li>
-    
-    <li class="c-categories__item">
-      
-      <a class="c-categories__link" href="/category/web/">
-        
-        
-        
-        <div class="c-categories__img">
-          <figure style="background-image: url('/images/html.jpg');"></figure>
-          <span class="c-categories__more">View all</span>
-        </div>
-        
-        
-        <div class="c-categories__container ">
-          <h2 class="c-categories__header">web</h2>
-          <p class="c-categories__count"><span>2</span> Posts</p>
-        </div>
-      </a>
-    </li>
-    
-  </ul>
-</div> <!-- ./c-categories -->
+    </div> <!-- /.c-wrap-content -->
+  </div> <!-- /.c-article__content -->
+</article> <!-- /.c-article-page -->
+
 </main> <!-- /.c-content -->
   </div> <!-- /.o-wrapper -->
   <div class="c-top" data-icon='ei-chevron-up' data-size='s' title="Scroll To Top"></div> <!-- /.c-top -->
