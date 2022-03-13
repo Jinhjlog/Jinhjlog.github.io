@@ -1,0 +1,134 @@
+---
+layout: post
+title: 4일차. CSS, 선택자
+image: html.jpg
+date: 2022-03-08 15:52:20 +0200
+tags: [web, HTML, CSS]
+categories: web
+---
+## 후손선택자
+
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>title</title>
+        <style>
+            /* 후손 선택자, div의 후손 요소는 strong 뿐만 아니라 자식요소인 li도 포함이 된다. */
+            div strong {color: red;}
+
+            /* 자식 선택자 */
+            div > ul > li {color: yellowgreen;}
+        </style>
+    </head>
+    <body>
+        <div>
+            <ul>
+                <li>AAA</li>
+                <li>BBB</li>
+                <li>CCC<strong>SSS</strong></li>
+            </ul>
+        </div>
+    </body>
+</html>
+{% endhighlight %}
+>선택자는 선택자들끼리 중첩이 가능하다. <br>
+선택자들 중 범위가 더 좁을 경우에 우선순위가 더 높다.<br>
+대상이 되는 범위가 좁은 선택자가 좋은 선택자이다
+
+결과<br>
+![]({{site.baseurl}}/images/web/20220308/20220308-1.png)<br>
+
+<hr>
+## 동위 선택자
+형제 요소 : 같은 부모 요소를 두고 있는 자식 요소
+
+동위 선택자는 형제 요소 중 뒤에 나오는 요소를 선택할 때 사용한다.
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>title</title>
+        <style>
+            /* (+)선택자 ex_A와 동위 관계에 있는 요소 뒤에 나오는 요소 선택 */
+            li.ex_A + li { color: red; }
+            
+            /* (~)선택자 ex_A와 동위 관계에 있는 요소 중 뒤에 나오는 요소 들 선택 */
+            li.ex_A ~ li { background-color: yellowgreen; }  
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Hello</h1>
+            <ul>
+                <li class="ex_A">AAA</li>
+                <li>BBB</li>
+                <li class="ex_C">CCC</li>
+            </ul>
+        </div>
+    </body>
+</html>
+{% endhighlight %}
+
+결과<br>
+![]({{site.baseurl}}/images/web/20220308/20220308-2.png)<br>
+<hr>
+## 반응 선택자
+마우스 동작에 반응하며 특정한 상태에 있는 요소를 선택한다.
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>title</title>
+        <style>
+        
+            /* 마우스 포인터가 HTML 요소에 올라가 있을 때 반응 */
+            #title:hover { color:yellowgreen; }
+            /* HTML 요소를 클릭 했을 때 반응 */
+            #title:active { background-color: blue; }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1 id="title">Hello World!!</h1>
+            <ul id="ex">
+                <li>AAA</li>
+                <li>BBB</li>
+                <li>CCC</li>
+            </ul>
+        </div>
+    </body>
+</html>
+{% endhighlight %}<br>
+결과 <br>
+<video width="100%" height="100%" controls="controls">
+  <source src="/video/20220308-1.mp4" type="video/mp4">
+</video>
+<br>
+<hr>
+## 구조 선택자
+형제 관계에 있는 요소들 중 특정 위치 요소 선택
+{% highlight html %}
+    <style>
+        /* (수열)을 이용하여 앞에서 수열 번째에 있는 요소를 선택
+           n은 0부터 1씩 증가한다. */
+        /* 아래의 수열은 nth-child(even)와 동일하다.*/
+        ul > li:nth-child(2n) {color: blue;}
+        /* (수열)을 이용하여 뒤에서 수열 번째에 있는 요소를 선택 */
+        /* 아래의 수열은 nth-last-child(odd)와 동일하다.*/
+        ul > li:nth-last-child(2n+1) {color: green;}
+        /* 형제 요소 중 첫 번째에 있는 요소 선택 */
+        ul > li:first-child { color: red; }
+        /* 형제 요소 중 마지막에 있는 요소 선택 */
+        ul > li:last-child {color: purple; }
+    </style>
+{% endhighlight %}
+결과 <br>
+![]({{site.baseurl}}/images/web/20220308/20220308-3.png)<br>
+
+
+
+
